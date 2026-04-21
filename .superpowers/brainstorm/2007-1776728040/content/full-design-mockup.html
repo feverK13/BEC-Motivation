@@ -1,0 +1,641 @@
+<style>
+  .bec-desktop-full {
+    background: linear-gradient(145deg, #0a0a0a 0%, #121212 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    border: 1px solid #1f1f1f;
+    display: flex;
+    min-height: 600px;
+  }
+  .bec-sidebar {
+    width: 220px;
+    background: linear-gradient(180deg, #151515 0%, #1a1a1a 100%);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid #252525;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  .bec-logo {
+    color: #fa8112;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    text-shadow: 0 0 20px rgba(250, 129, 18, 0.3);
+  }
+  .bec-nav-item {
+    color: #6b6b6b;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .bec-nav-item:hover {
+    color: #fa8112;
+    background: rgba(250, 129, 18, 0.08);
+  }
+  .bec-nav-item.active {
+    color: #fa8112;
+    background: linear-gradient(90deg, rgba(250, 129, 18, 0.15) 0%, transparent 100%);
+    border-left: 3px solid #fa8112;
+    margin-left: -3px;
+  }
+  .bec-main-content {
+    flex: 1;
+    padding: 0;
+  }
+  .bec-section {
+    min-height: 100vh;
+    padding: 80px 60px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1f1f1f;
+  }
+  .bec-section-content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .bec-two-col {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+  }
+  .bec-text-col {
+    flex: 1;
+  }
+  .bec-photo-col {
+    width: 350px;
+    flex-shrink: 0;
+  }
+  .bec-section-label {
+    color: #fa8112;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+  .bec-section-title {
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.1;
+  }
+  .bec-text {
+    color: #a0a0a0;
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  .bec-text strong {
+    color: #e0e0e0;
+  }
+  .bec-carousel {
+    width: 280px;
+    height: 280px;
+    background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(250, 129, 18, 0.1);
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .bec-photo-placeholder {
+    width: 220px;
+    height: 220px;
+    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 12px;
+  }
+  .bec-carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  .bec-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .bec-dot.active {
+    background: #fa8112;
+    box-shadow: 0 0 10px rgba(250, 129, 18, 0.5);
+  }
+  .bec-arrows {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  .bec-arrow {
+    width: 36px;
+    height: 36px;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(250, 129, 18, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fa8112;
+    font-size: 14px;
+  }
+  .bec-timer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #fa8112, #ff9a3c);
+    width: 60%;
+  }
+  .bec-role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .bec-role-card {
+    background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+  }
+  .bec-role-card h3 {
+    color: #fa8112;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .bec-role-card p {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .bec-summary-box {
+    background: linear-gradient(145deg, rgba(250, 129, 18, 0.1) 0%, rgba(250, 129, 18, 0.05) 100%);
+    border: 1px solid rgba(250, 129, 18, 0.2);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+  }
+  .bec-social-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .bec-social-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6b6b6b;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .bec-social-item:hover {
+    color: #fa8112;
+    transform: translateY(-2px);
+  }
+  .bec-social-icon {
+    width: 24px;
+    height: 24px;
+    background: #2a2a2a;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  /* Mobile */
+  .bec-mobile-full {
+    display: none;
+    width: 360px;
+    background: linear-gradient(145deg, #0a0a0a 0%, #121212 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid #333;
+    flex-direction: column;
+  }
+  .bec-mobile-header {
+    background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #252525;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .bec-burger {
+    width: 24px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .bec-burger span {
+    height: 2px;
+    background: #fa8112;
+    border-radius: 2px;
+  }
+  .bec-mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.98);
+    z-index: 200;
+    display: none;
+    flex-direction: column;
+    padding: 80px 40px;
+    gap: 20px;
+  }
+  .bec-mobile-menu.active {
+    display: flex;
+  }
+  .bec-mobile-menu-item {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .bec-mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fa8112;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  .bec-mobile-content {
+    padding: 30px 25px;
+    overflow-y: auto;
+    flex: 1;
+  }
+  .bec-mobile-section {
+    margin-bottom: 50px;
+  }
+  .bec-mobile-carousel {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
+    border-radius: 12px;
+    margin: 20px 0;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  .bec-mobile-carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  .bec-mobile-title {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  .bec-mobile-text {
+    color: #888;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  @media (max-width: 900px) {
+    .bec-desktop-full { display: none; }
+    .bec-mobile-full { display: flex; }
+  }
+
+  .section-title {
+    color: #fa8112;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+</style>
+
+<h2>Повний макет BEC Motivation Website</h2>
+<p class="subtitle">Всі секції: Desktop + Mobile</p>
+
+<!-- DESKTOP VERSION -->
+<div class="mockup">
+  <div class="mockup-header">Desktop View (≥900px) - Всі секції</div>
+  <div class="mockup-body" style="overflow-x: auto;">
+
+    <div class="bec-desktop-full">
+      <div class="bec-sidebar">
+        <div class="bec-logo">BEC 2026</div>
+        <div class="bec-nav-item active">Про мене</div>
+        <div class="bec-nav-item">Логіст</div>
+        <div class="bec-nav-item">ІТшник</div>
+        <div class="bec-nav-item">Підсумок</div>
+        <div class="bec-nav-item">Контакти</div>
+      </div>
+
+      <div class="bec-main-content">
+
+        <!-- Section 1: About -->
+        <div class="bec-section" id="about">
+          <div class="bec-section-content">
+            <div class="bec-two-col">
+              <div class="bec-text-col">
+                <div class="bec-section-label">Welcome</div>
+                <h2 class="bec-section-title">Про мене</h2>
+                <p class="bec-text">
+                  <strong><!-- USER_CONTENT: Ваше біо --></strong><br><br>
+                  Привіт! Я — [Ім'я], ентузіаст інженерії та технологій. Моя пристрасть до організації подій привела мене до BEST Engineering Competition 2026.
+                </p>
+              </div>
+              <div class="bec-photo-col">
+                <div class="bec-carousel">
+                  <div class="bec-arrows">
+                    <div class="bec-arrow">◀</div>
+                    <div class="bec-arrow">▶</div>
+                  </div>
+                  <div class="bec-photo-placeholder">Фото 1:1</div>
+                  <div class="bec-carousel-dots">
+                    <div class="bec-dot active"></div>
+                    <div class="bec-dot"></div>
+                    <div class="bec-dot"></div>
+                    <div class="bec-dot"></div>
+                    <div class="bec-dot"></div>
+                  </div>
+                  <div class="bec-timer-bar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Logistician -->
+        <div class="bec-section" id="logistician">
+          <div class="bec-section-content">
+            <div class="bec-section-label">Роль</div>
+            <h2 class="bec-section-title">Логіст</h2>
+            <div class="bec-role-grid">
+              <div class="bec-role-card">
+                <h3>Чому ця роль?</h3>
+                <p><!-- USER_CONTENT: Логіст - Чому ця роль? --></p>
+              </div>
+              <div class="bec-role-card">
+                <h3>Що я принесу?</h3>
+                <p><!-- USER_CONTENT: Логіст - Що я принесу? --></p>
+              </div>
+              <div class="bec-role-card">
+                <h3>Що я отримаю?</h3>
+                <p><!-- USER_CONTENT: Логіст - Що я отримаю? --></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: IT Specialist -->
+        <div class="bec-section" id="it">
+          <div class="bec-section-content">
+            <div class="bec-section-label">Роль</div>
+            <h2 class="bec-section-title">ІТшник</h2>
+            <div class="bec-role-grid">
+              <div class="bec-role-card">
+                <h3>Чому ця роль?</h3>
+                <p><!-- USER_CONTENT: ІТшник - Чому ця роль? --></p>
+              </div>
+              <div class="bec-role-card">
+                <h3>Що я принесу?</h3>
+                <p><!-- USER_CONTENT: ІТшник - Що я принесу? --></p>
+              </div>
+              <div class="bec-role-card">
+                <h3>Що я отримаю?</h3>
+                <p><!-- USER_CONTENT: ІТшник - Що я отримаю? --></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Summary for MO -->
+        <div class="bec-section" id="summary">
+          <div class="bec-section-content">
+            <div class="bec-section-label">Для організаторів</div>
+            <h2 class="bec-section-title">Підсумок</h2>
+            <div class="bec-summary-box">
+              <p class="bec-text">
+                <strong><!-- USER_CONTENT: Звернення до MO --></strong><br><br>
+                [Тут буде ваш текст з самоіронією та зверненням до Main Organizer]
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Contacts/Footer -->
+        <div class="bec-section" id="contacts" style="min-height: auto; padding: 60px;">
+          <div class="bec-section-content" style="text-align: center;">
+            <div class="bec-section-label">Зв'язок</div>
+            <h2 class="bec-section-title" style="font-size: 32px;">Контакти</h2>
+            <div class="bec-social-grid">
+              <a href="#" class="bec-social-item">
+                <div class="bec-social-icon">GH</div>
+                <span>GitHub</span>
+              </a>
+              <a href="#" class="bec-social-item">
+                <div class="bec-social-icon">TG</div>
+                <span>Telegram</span>
+              </a>
+              <a href="#" class="bec-social-item">
+                <div class="bec-social-icon">@</div>
+                <span>Email</span>
+              </a>
+              <a href="#" class="bec-social-item">
+                <div class="bec-social-icon">DC</div>
+                <span>Discord</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MOBILE VERSION -->
+<div class="mockup" style="margin-top: 30px;">
+  <div class="mockup-header">Mobile View (<900px) - Всі секції</div>
+  <div class="mockup-body" style="display: flex; gap: 30px; flex-wrap: wrap;">
+
+    <div class="bec-mobile-full">
+      <!-- Mobile Header -->
+      <div class="bec-mobile-header">
+        <div style="color: #fa8112; font-weight: 800; font-size: 20px;">BEC 2026</div>
+        <div class="bec-burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (shown on burger click) -->
+      <div class="bec-mobile-menu">
+        <div class="bec-mobile-close">×</div>
+        <div class="bec-mobile-menu-item">Про мене</div>
+        <div class="bec-mobile-menu-item">Логіст</div>
+        <div class="bec-mobile-menu-item">ІТшник</div>
+        <div class="bec-mobile-menu-item">Підсумок</div>
+        <div class="bec-mobile-menu-item">Контакти</div>
+      </div>
+
+      <div class="bec-mobile-content">
+
+        <!-- Section 1: About -->
+        <div class="bec-mobile-section">
+          <div style="color: #fa8112; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Welcome</div>
+          <h2 class="bec-mobile-title">Про мене</h2>
+          <p class="bec-mobile-text">
+            <strong><!-- USER_CONTENT --></strong><br><br>
+            [Ваше біо тут...]
+          </p>
+          <div class="bec-mobile-carousel">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #555;">
+              Фото
+            </div>
+            <div class="bec-mobile-carousel-dots">
+              <div style="width: 8px; height: 8px; border-radius: 50%; background: #fa8112;"></div>
+              <div style="width: 8px; height: 8px; border-radius: 50%; background: #444;"></div>
+              <div style="width: 8px; height: 8px; border-radius: 50%; background: #444;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Logistician -->
+        <div class="bec-mobile-section">
+          <div style="color: #fa8112; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Роль</div>
+          <h2 class="bec-mobile-title">Логіст</h2>
+
+          <div style="background: linear-gradient(145deg, #1a1a1a 0%, #222 100%); padding: 20px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #2a2a2a;">
+            <h3 style="color: #fa8112; font-size: 16px; margin-bottom: 10px;">Чому ця роль?</h3>
+            <p style="color: #888; font-size: 14px; line-height: 1.5;"><!-- USER_CONTENT --></p>
+          </div>
+
+          <div style="background: linear-gradient(145deg, #1a1a1a 0%, #222 100%); padding: 20px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #2a2a2a;">
+            <h3 style="color: #fa8112; font-size: 16px; margin-bottom: 10px;">Що я принесу?</h3>
+            <p style="color: #888; font-size: 14px; line-height: 1.5;"><!-- USER_CONTENT --></p>
+          </div>
+
+          <div style="background: linear-gradient(145deg, #1a1a1a 0%, #222 100%); padding: 20px; border-radius: 12px; border: 1px solid #2a2a2a;">
+            <h3 style="color: #fa8112; font-size: 16px; margin-bottom: 10px;">Що я отримаю?</h3>
+            <p style="color: #888; font-size: 14px; line-height: 1.5;"><!-- USER_CONTENT --></p>
+          </div>
+        </div>
+
+        <!-- Section 3: IT Specialist -->
+        <div class="bec-mobile-section">
+          <div style="color: #fa8112; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Роль</div>
+          <h2 class="bec-mobile-title">ІТшник</h2>
+
+          <div style="background: linear-gradient(145deg, #1a1a1a 0%, #222 100%); padding: 20px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #2a2a2a;">
+            <h3 style="color: #fa8112; font-size: 16px; margin-bottom: 10px;">Чому ця роль?</h3>
+            <p style="color: #888; font-size: 14px; line-height: 1.5;"><!-- USER_CONTENT --></p>
+          </div>
+
+          <div style="background: linear-gradient(145deg, #1a1a1a 0%, #222 100%); padding: 20px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #2a2a2a;">
+            <h3 style="color: #fa8112; font-size: 16px; margin-bottom: 10px;">Що я принесу?</h3>
+            <p style="color: #888; font-size: 14px; line-height: 1.5;"><!-- USER_CONTENT --></p>
+          </div>
+
+          <div style="background: linear-gradient(145deg, #1a1a1a 0%, #222 100%); padding: 20px; border-radius: 12px; border: 1px solid #2a2a2a;">
+            <h3 style="color: #fa8112; font-size: 16px; margin-bottom: 10px;">Що я отримаю?</h3>
+            <p style="color: #888; font-size: 14px; line-height: 1.5;"><!-- USER_CONTENT --></p>
+          </div>
+        </div>
+
+        <!-- Section 4: Summary -->
+        <div class="bec-mobile-section">
+          <div style="color: #fa8112; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Для організаторів</div>
+          <h2 class="bec-mobile-title">Підсумок</h2>
+          <div style="background: linear-gradient(145deg, rgba(250, 129, 18, 0.1) 0%, rgba(250, 129, 18, 0.05) 100%); border: 1px solid rgba(250, 129, 18, 0.2); border-radius: 16px; padding: 25px;">
+            <p class="bec-mobile-text" style="text-align: center;">
+              <strong><!-- USER_CONTENT --></strong><br><br>
+              [Ваш текст тут...]
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 5: Contacts -->
+        <div class="bec-mobile-section" style="text-align: center;">
+          <div style="color: #fa8112; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Зв'язок</div>
+          <h2 class="bec-mobile-title">Контакти</h2>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;">
+            <div style="background: #1a1a1a; padding: 15px; border-radius: 10px; color: #888;">
+              <div style="font-size: 20px; margin-bottom: 5px;">GH</div>
+              <div style="font-size: 12px;">GitHub</div>
+            </div>
+            <div style="background: #1a1a1a; padding: 15px; border-radius: 10px; color: #888;">
+              <div style="font-size: 20px; margin-bottom: 5px;">TG</div>
+              <div style="font-size: 12px;">Telegram</div>
+            </div>
+            <div style="background: #1a1a1a; padding: 15px; border-radius: 10px; color: #888;">
+              <div style="font-size: 20px; margin-bottom: 5px;">@</div>
+              <div style="font-size: 12px;">Email</div>
+            </div>
+            <div style="background: #1a1a1a; padding: 15px; border-radius: 10px; color: #888;">
+              <div style="font-size: 20px; margin-bottom: 5px;">DC</div>
+              <div style="font-size: 12px;">Discord</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section" style="margin-top: 30px;">
+  <h3>Всі секції:</h3>
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>✓ Desktop (≥900px):</h4>
+      <ul>
+        <li>Fixed sidebar navigation зліва</li>
+        <li>Про мене: текст + фото поруч (2 колонки)</li>
+        <li>Логіст/ІТшник: 3 картки в ряд</li>
+        <li>Підсумок: центрований блок з кольоровим фоном</li>
+        <li>Контакти: іконки в ряд</li>
+      </ul>
+    </div>
+    <div class="pros">
+      <h4>✓ Mobile (<900px):</h4>
+      <ul>
+        <li>Fixed header зверху + hamburger menu</li>
+        <li>Про мене: вертикальний стек</li>
+        <li>Логіст/ІТшник: картки один під одним</li>
+        <li>Підсумок: центрований блок</li>
+        <li>Контакти: 2×2 сітка</li>
+      </ul>
+    </div>
+  </div>
+</div>

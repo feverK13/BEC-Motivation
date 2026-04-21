@@ -1,0 +1,265 @@
+<style>
+  .bec-mockup {
+    display: flex;
+    height: 500px;
+    background: #0d0d0d;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+  }
+  .bec-sidebar {
+    width: 200px;
+    background: #1a1a1a;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .bec-logo {
+    color: #fa8112;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  .bec-nav-item {
+    color: #888;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .bec-nav-item:hover {
+    color: #fa8112;
+  }
+  .bec-nav-item.active {
+    color: #fa8112;
+    border-left: 3px solid #fa8112;
+    padding-left: 10px;
+  }
+  .bec-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+  }
+  .bec-section-title {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .bec-bio {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  .bec-carousel {
+    width: 300px;
+    height: 400px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .bec-photo-placeholder {
+    width: 200px;
+    height: 267px;
+    background: linear-gradient(135deg, #333, #444);
+    border-radius: 4px;
+  }
+  .bec-carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    gap: 8px;
+  }
+  .bec-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #555;
+  }
+  .bec-dot.active {
+    background: #fa8112;
+  }
+  .bec-arrows {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .bec-arrow {
+    width: 30px;
+    height: 30px;
+    background: rgba(250, 129, 18, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fa8112;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .bec-arrow:hover {
+    background: #fa8112;
+    color: #0d0d0d;
+  }
+  .bec-mobile-header {
+    display: none;
+    background: #1a1a1a;
+    padding: 15px 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .bec-burger {
+    width: 25px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .bec-burger span {
+    height: 2px;
+    background: #fa8112;
+    border-radius: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .bec-mockup {
+      flex-direction: column;
+    }
+    .bec-sidebar {
+      display: none;
+    }
+    .bec-mobile-header {
+      display: flex;
+    }
+    .bec-content {
+      padding: 20px;
+    }
+    .bec-carousel {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  .bec-mobile-preview {
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+  }
+  .bec-mobile-preview h4 {
+    color: #888;
+    margin-bottom: 10px;
+  }
+  .bec-mobile-view {
+    width: 280px;
+    height: 400px;
+    background: #0d0d0d;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid #333;
+  }
+</style>
+
+<h2>Макет BEC Motivation Website</h2>
+<p class="subtitle">Темна тема з акцентом #fa8112 | Адаптивна бічна навігація | Карусель 3:4 фото</p>
+
+<div class="mockup">
+  <div class="mockup-header">Desktop View (≥768px)</div>
+  <div class="mockup-body">
+    <div class="bec-mockup">
+      <div class="bec-sidebar">
+        <div class="bec-logo">BEC</div>
+        <div class="bec-nav-item active">Про мене</div>
+        <div class="bec-nav-item">Логіст</div>
+        <div class="bec-nav-item">ІТшник</div>
+        <div class="bec-nav-item">Підсумок</div>
+        <div class="bec-nav-item">Контакти</div>
+      </div>
+      <div class="bec-content">
+        <h2 class="bec-section-title">Про мене</h2>
+        <p class="bec-bio"><!-- USER_CONTENT: Ваш текст тут -->
+          [Ваше біо - 2-3 речення про себе...]
+        </p>
+
+        <div class="bec-carousel">
+          <div class="bec-arrows">
+            <div class="bec-arrow"><</div>
+            <div class="bec-arrow">></div>
+          </div>
+          <div class="bec-photo-placeholder"></div>
+          <div class="bec-carousel-dots">
+            <div class="bec-dot active"></div>
+            <div class="bec-dot"></div>
+            <div class="bec-dot"></div>
+            <div class="bec-dot"></div>
+            <div class="bec-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bec-mobile-preview">
+      <h4>Mobile View (<768px)</h4>
+      <div class="bec-mobile-view">
+        <div class="bec-mobile-header">
+          <div style="color: #fa8112; font-weight: bold;">BEC</div>
+          <div class="bec-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 30px;">
+  <h3>Hover-ефекти для кнопок:</h3>
+  <div style="display: flex; gap: 20px; margin-top: 15px;">
+    <button style="
+      background: transparent;
+      border: 2px solid #fa8112;
+      color: #fa8112;
+      padding: 12px 30px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    " onmouseover="this.style.background='#fa8112'; this.style.color='#0d0d0d'" onmouseout="this.style.background='transparent'; this.style.color='#fa8112'">
+      Звичайна кнопка
+    </button>
+
+    <button style="
+      background: #fa8112;
+      border: 2px solid #fa8112;
+      color: #0d0d0d;
+      padding: 12px 30px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    " onmouseover="this.style.background='transparent'; this.style.color='#fa8112'" onmouseout="this.style.background='#fa8112'; this.style.color='#0d0d0d'">
+      Заповнена кнопка
+    </button>
+  </div>
+</div>
+
+<div class="section">
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>✓ Включено у дизайн:</h4>
+      <ul>
+        <li>Темна тема #0d0d0d з акцентом #fa8112</li>
+        <li>Бічна навігація (десктоп) / Бургер (мобільний)</li>
+        <li>Карусель: 5 фото, 3:4 формат, 8с авто-ротація</li>
+        <li>Стрілки + точки для ручного перемикання</li>
+        <li>Fade-in анімації при скролі</li>
+        <li>Hover: інверсія кольорів на кнопках</li>
+        <li>Окремі секції для Логіста та ІТшника</li>
+      </ul>
+    </div>
+  </div>
+</div>

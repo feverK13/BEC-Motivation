@@ -1,0 +1,334 @@
+<style>
+  .bec-mobile {
+    width: 375px;
+    background: linear-gradient(145deg, #0a0a0a 0%, #121212 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid #333;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .bec-mobile-header {
+    background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #252525;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .bec-mobile-logo {
+    color: #fa8112;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  .bec-burger {
+    width: 24px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .bec-burger span {
+    height: 2px;
+    background: #fa8112;
+    border-radius: 2px;
+  }
+  .bec-mobile-content {
+    padding: 30px 25px;
+    overflow-y: auto;
+    height: 600px;
+  }
+  .bec-mobile-section {
+    margin-bottom: 50px;
+  }
+  .bec-mobile-label {
+    color: #fa8112;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .bec-mobile-title {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .bec-mobile-text {
+    color: #a0a0a0;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .bec-mobile-text strong {
+    color: #e0e0e0;
+  }
+  .bec-mobile-carousel {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
+    border-radius: 12px;
+    margin: 25px 0;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bec-mobile-photo {
+    width: 220px;
+    height: 220px;
+    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 48px;
+  }
+  .bec-mobile-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  .bec-mobile-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #444;
+  }
+  .bec-mobile-dot.active {
+    background: #fa8112;
+    box-shadow: 0 0 8px rgba(250, 129, 18, 0.5);
+  }
+
+  /* Role Tabs */
+  .bec-mobile-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+  .bec-mobile-tab {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    color: #6b6b6b;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    background: transparent;
+  }
+  .bec-mobile-tab.active {
+    background: linear-gradient(145deg, rgba(250, 129, 18, 0.2) 0%, rgba(250, 129, 18, 0.1) 100%);
+    border-color: #fa8112;
+    color: #fa8112;
+  }
+
+  /* Role Blocks */
+  .bec-mobile-block {
+    background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #2a2a2a;
+  }
+  .bec-mobile-block h3 {
+    color: #fa8112;
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .bec-mobile-block p {
+    color: #888;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* Summary */
+  .bec-mobile-summary {
+    background: linear-gradient(145deg, rgba(250, 129, 18, 0.08) 0%, rgba(250, 129, 18, 0.03) 100%);
+    border: 1px solid rgba(250, 129, 18, 0.2);
+    border-radius: 16px;
+    padding: 25px;
+  }
+
+  /* Footer */
+  .bec-mobile-footer {
+    text-align: center;
+    padding: 30px 0;
+  }
+  .bec-mobile-social-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .bec-mobile-social {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #888;
+    text-decoration: none;
+  }
+  .bec-mobile-social svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+  .bec-mobile-social span {
+    font-size: 12px;
+  }
+</style>
+
+<h2>Mobile макет - Full Design</h2>
+<p class="subtitle">Всі секції з реальним наповненням</p>
+
+<div class="mockup">
+  <div class="mockup-header">Mobile View (375px)</div>
+  <div class="mockup-body" style="display: flex; justify-content: center; padding: 20px;">
+
+    <div class="bec-mobile">
+      <!-- Header -->
+      <div class="bec-mobile-header">
+        <div class="bec-mobile-logo">BEC 2026</div>
+        <div class="bec-burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="bec-mobile-content">
+
+        <!-- Section 1: About -->
+        <div class="bec-mobile-section">
+          <div class="bec-mobile-label">Welcome</div>
+          <h2 class="bec-mobile-title">Про мене</h2>
+          <p class="bec-mobile-text">
+            <strong>Привіт! Я — Олександр, ентузіаст інженерії та технологій.</strong><br><br>
+            Моя пристрасть до організації подій та розробки IT-рішень привела мене до BEST Engineering Competition 2026.
+          </p>
+
+          <div class="bec-mobile-carousel">
+            <div class="bec-mobile-photo">👤</div>
+            <div class="bec-mobile-dots">
+              <div class="bec-mobile-dot active"></div>
+              <div class="bec-mobile-dot"></div>
+              <div class="bec-mobile-dot"></div>
+              <div class="bec-mobile-dot"></div>
+              <div class="bec-mobile-dot"></div>
+            </div>
+          </div>
+
+          <p class="bec-mobile-text">
+            За час навчання я реалізував кілька власних проєктів, від веб-додатків до систем автоматизації.
+          </p>
+        </div>
+
+        <!-- Section 2: Role -->
+        <div class="bec-mobile-section">
+          <div class="bec-mobile-label">Оберіть роль</div>
+          <h2 class="bec-mobile-title">Моя позиція</h2>
+
+          <!-- Tabs -->
+          <div class="bec-mobile-tabs">
+            <div class="bec-mobile-tab active">Логіст</div>
+            <div class="bec-mobile-tab">ІТшник</div>
+          </div>
+
+          <!-- Logistician Content -->
+          <div class="bec-mobile-block">
+            <h3>🎯 Чому ця роль?</h3>
+            <p>Логістика — це серце будь-якого івенту. Мені подобається бачити, як безліч деталей складаються в єдиний механізм.</p>
+          </div>
+
+          <div class="bec-mobile-block">
+            <h3>💪 Що я принесу?</h3>
+            <p>• Досвід організації 10+ івентів<br>
+               • Робота з постачальниками<br>
+               • Вміння працювати під тиском</p>
+          </div>
+
+          <div class="bec-mobile-block">
+            <h3>🌟 Що я отримаю?</h3>
+            <p>BEST — це платформа для зростання. Міжнародний досвід роботи в команді та нові знайомства.</p>
+          </div>
+        </div>
+
+        <!-- Section 3: Summary -->
+        <div class="bec-mobile-section">
+          <div class="bec-mobile-label">Для організаторів</div>
+          <h2 class="bec-mobile-title">Підсумок</h2>
+
+          <div class="bec-mobile-summary">
+            <p class="bec-mobile-text">
+              <strong>Шановний Main Organizer!</strong><br><br>
+              Якщо ви шукаєте людину, яка працюватиме 24/7 — я тут 🎯<br><br>
+              Мої навички: можу одночасно вирішувати 5 кризових ситуацій і зберігати спокійну посмішку.<br><br>
+              Давайте разом зробимо цей івент незабутнім! 🚀
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 4: Contacts -->
+        <div class="bec-mobile-footer">
+          <div class="bec-mobile-label">Зв'язок</div>
+          <h2 class="bec-mobile-title" style="font-size: 24px;">Контакти</h2>
+
+          <div class="bec-mobile-social-grid">
+            <a href="#" class="bec-mobile-social">
+              <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              <span>GitHub</span>
+            </a>
+
+            <a href="#" class="bec-mobile-social">
+              <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.004.465.027a.473.473 0 0 1 .314.17c.08.097.109 1.104.109 1.104s-.041 2.11-.047 2.377c-.01.267-.006.533-.006.8c0 .267.015.267.015.267s.023.267.023.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267-.015.533c-.003.04-.003.08 0 .12l.015.267.015.533c0 .004 0 .007-.015.01a.47.47 0 0 1-.147.014c-.2.006-.4-.014-.6-.03a.475.475 0 0 1-.293-.186c-.16-.187-.267-.4-.347-.626-.16-.426-.24-.867-.24-1.314c0-.267.015-.533.015-.533s.015-.267.015-.533c0-.267-.015-.533-.015-.533s-.015-.267-.015-.533c0-.267.015-.533.015-.533s.015-.267.015-.533c0-.267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267-.015.533c-.003.04-.003.08 0 .12l.015.267.015.533c0 .004 0 .007-.015.01a.47.47 0 0 1-.147.014c-.2.006-.4-.014-.6-.03a.475.475 0 0 1-.293-.186c-.16-.187-.267-.4-.347-.626-.16-.426-.24-.867-.24-1.314c0-.267.015-.533.015-.533s.015-.267.015-.533c0-.267-.015-.533-.015-.533s-.015-.267-.015-.533c0-.267.015-.533.015-.533s.015-.267.015-.533c0-.267-.015-.533-.015-.533s-.015-.267-.015-.533c0-.267.015-.533.015-.533s.015-.267.015-.533c0-.267-.015-.533-.015-.533s-.015-.267-.015-.533c0-.267.015-.533.015-.533s.015-.267.015-.533c0-.267-.015-.533-.015-.533s-.015-.267-.015-.533c0-.267.015-.533.015-.533s.015-.267.015-.533c0-.267-.015.533-.015.533l-.015.267v-.533c0-.267.015-.267.015-.267s.015-.267.015-.533c0-.267-.015-.533-.015-.533l-.015-.267v-.533c0-.267.015-.267.015-.267s.015-.267.015-.533c0-.267-.015-.533-.015-.533l-.015-.267v-.533c0-.267.015-.267.015-.267s.015-.267.015-.533c0-.267-.015-.533-.015-.533l-.015-.267v-.533c0-.267.015-.267.015-.267s.015-.267.015-.533c0-.267-.015-.533-.015-.533l-.015-.267v-.533c0-.267.015-.267.015-.267s.015-.267.015-.533c0-.267-.015-.533-.015-.533s-.02-.266-.053-.532c-.04-.267-.08-.533-.12-.8a.474.474 0 0 1 .347-.546c.253-.08.506-.107.76-.133a.473.473 0 0 1 .413.266c.053.133.053.267.053.267v2.133c0 .267-.015.267-.015.267s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533l-.015.267v.533c0 .267.015.267.015.267s.015.267.015.533c0 .267-.015.533-.015.533s-.015.267-.015.533c0 .267.015.533.015.533s.015.267.015.533c0 .267-.015.533-.015.533z"/></svg>
+              <span>Telegram</span>
+            </a>
+
+            <a href="#" class="bec-mobile-social">
+              <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.545L12 10.91l9.818-7.09h.546c.904 0 1.636.732 1.636 1.636z"/></svg>
+              <span>Gmail</span>
+            </a>
+
+            <a href="#" class="bec-mobile-social">
+              <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106a13.71 13.71 0 0 1-1.872-.892.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c1.942.925 4.048 1.427 6.194 1.427c2.146 0 4.251-.502 6.194-1.427a.074.074 0 0 1 .078.01c.12.098.246.198.372.292a.077.077 0 0 1-.006.127a12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.994a.076.076 0 0 0 .084.028a19.84 19.84 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></svg>
+              <span>Discord</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section" style="margin-top: 30px;">
+  <h3>Mobile версія готова:</h3>
+  <div class="pros-cons">
+    <div class="pros">
+      <ul>
+        <li>✓ Header з логотипом + бургер</li>
+        <li>✓ Всі секції вертикально стековані</li>
+        <li>✓ Таби для перемикання ролей</li>
+        <li>✓ Карусель адаптована під ширину</li>
+        <li>✓ Соцмережі в 2×2 сітці</li>
+        <li>✓ Реальні SVG іконки</li>
+      </ul>
+    </div>
+  </div>
+</div>

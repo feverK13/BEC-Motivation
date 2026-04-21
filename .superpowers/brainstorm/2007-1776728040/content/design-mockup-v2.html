@@ -1,0 +1,397 @@
+<style>
+  .bec-desktop {
+    display: flex;
+    height: 520px;
+    background: linear-gradient(145deg, #0a0a0a 0%, #121212 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    border: 1px solid #1f1f1f;
+  }
+  .bec-sidebar {
+    width: 220px;
+    background: linear-gradient(180deg, #151515 0%, #1a1a1a 100%);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid #252525;
+  }
+  .bec-logo {
+    color: #fa8112;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+    text-shadow: 0 0 20px rgba(250, 129, 18, 0.3);
+  }
+  .bec-nav-item {
+    color: #6b6b6b;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .bec-nav-item:hover {
+    color: #fa8112;
+    background: rgba(250, 129, 18, 0.08);
+  }
+  .bec-nav-item.active {
+    color: #fa8112;
+    background: linear-gradient(90deg, rgba(250, 129, 18, 0.15) 0%, transparent 100%);
+    border-left: 3px solid #fa8112;
+    margin-left: -3px;
+  }
+  .bec-content-area {
+    flex: 1;
+    display: flex;
+    padding: 50px;
+    gap: 50px;
+    align-items: center;
+  }
+  .bec-text-section {
+    flex: 1;
+    max-width: 400px;
+  }
+  .bec-section-label {
+    color: #fa8112;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+  .bec-section-title {
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.1;
+  }
+  .bec-bio {
+    color: #a0a0a0;
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  .bec-bio strong {
+    color: #e0e0e0;
+  }
+  .bec-photo-section {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bec-carousel {
+    width: 280px;
+    height: 373px;
+    background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(250, 129, 18, 0.1);
+    overflow: hidden;
+  }
+  .bec-photo-placeholder {
+    width: 220px;
+    height: 293px;
+    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 12px;
+  }
+  .bec-carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  .bec-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .bec-dot.active {
+    background: #fa8112;
+    box-shadow: 0 0 10px rgba(250, 129, 18, 0.5);
+  }
+  .bec-arrows {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  .bec-arrow {
+    width: 36px;
+    height: 36px;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(250, 129, 18, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fa8112;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+    backdrop-filter: blur(4px);
+  }
+  .bec-arrow:hover {
+    background: #fa8112;
+    color: #0a0a0a;
+    border-color: #fa8112;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(250, 129, 18, 0.4);
+  }
+  .bec-timer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #fa8112, #ff9a3c);
+    width: 60%;
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* Mobile */
+  .bec-mobile {
+    display: none;
+    width: 320px;
+    height: 500px;
+    background: linear-gradient(145deg, #0a0a0a 0%, #121212 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid #333;
+    flex-direction: column;
+  }
+  .bec-mobile-header {
+    background: linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #252525;
+  }
+  .bec-burger {
+    width: 24px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .bec-burger span {
+    height: 2px;
+    background: #fa8112;
+    border-radius: 2px;
+  }
+  .bec-mobile-content {
+    padding: 30px 25px;
+    overflow-y: auto;
+  }
+  .bec-mobile-title {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .bec-mobile-carousel {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
+    border-radius: 12px;
+    margin: 20px 0;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 900px) {
+    .bec-desktop { display: none; }
+    .bec-mobile { display: flex; }
+  }
+
+  .section-preview {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(145deg, #151515 0%, #1a1a1a 100%);
+    border-radius: 12px;
+    border: 1px solid #252525;
+  }
+  .section-preview h3 {
+    color: #fa8112;
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .preview-card {
+    background: linear-gradient(145deg, #1a1a1a 0%, #222 100%);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #2a2a2a;
+  }
+  .preview-card h4 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .preview-card p {
+    color: #666;
+    font-size: 12px;
+  }
+</style>
+
+<h2>Оновлений макет BEC Motivation Website</h2>
+<p class="subtitle">Текст + фото поруч на десктопі | Покращений контраст та глибина | Сучасний стиль</p>
+
+<div class="mockup">
+  <div class="mockup-header">Desktop View (≥900px)</div>
+  <div class="mockup-body">
+    <div class="bec-desktop">
+      <div class="bec-sidebar">
+        <div class="bec-logo">BEC 2026</div>
+        <div class="bec-nav-item active">Про мене</div>
+        <div class="bec-nav-item">Логіст</div>
+        <div class="bec-nav-item">ІТшник</div>
+        <div class="bec-nav-item">Підсумок</div>
+        <div class="bec-nav-item">Контакти</div>
+      </div>
+
+      <div class="bec-content-area">
+        <div class="bec-text-section">
+          <div class="bec-section-label">Welcome</div>
+          <h2 class="bec-section-title">Про мене</h2>
+          <p class="bec-bio">
+            <strong>[ТВІЙ КОНТЕНТ ТУТ]</strong><br><br>
+            Привіт! Я — [Ім'я], ентузіаст інженерії та технологій. Моя пристрасть до організації подій та розробки IT-рішень привела мене до BEST Engineering Competition 2026.
+          </p>
+        </div>
+
+        <div class="bec-photo-section">
+          <div class="bec-carousel">
+            <div class="bec-arrows">
+              <div class="bec-arrow">◀</div>
+              <div class="bec-arrow">▶</div>
+            </div>
+            <div class="bec-photo-placeholder">Фото 3:4</div>
+            <div class="bec-carousel-dots">
+              <div class="bec-dot active"></div>
+              <div class="bec-dot"></div>
+              <div class="bec-dot"></div>
+              <div class="bec-dot"></div>
+              <div class="bec-dot"></div>
+            </div>
+            <div class="bec-timer-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <div class="mockup-header">Mobile View (<900px)</div>
+      <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+        <div class="bec-mobile">
+          <div class="bec-mobile-header">
+            <div style="color: #fa8112; font-weight: 800; font-size: 20px;">BEC 2026</div>
+            <div class="bec-burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="bec-mobile-content">
+            <div class="bec-section-label" style="color: #fa8112; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Welcome</div>
+            <h2 class="bec-mobile-title">Про мене</h2>
+            <p style="color: #888; line-height: 1.6; font-size: 14px;">
+              [Твій текст тут - мобільна версія]
+            </p>
+            <div class="bec-mobile-carousel">
+              <div style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px;">
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: #fa8112;"></div>
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: #444;"></div>
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: #444;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+          <div class="section-preview">
+            <h3>Анімації та ефекти</h3>
+            <div class="preview-grid">
+              <div class="preview-card">
+                <h4>Fade In</h4>
+                <p>Плавна поява секцій при скролі (opacity + translateY)</p>
+              </div>
+              <div class="preview-card">
+                <h4>Hover Scale</h4>
+                <p>Кнопки збільшуються на 10% з glow-ефектом</p>
+              </div>
+              <div class="preview-card">
+                <h4>Carousel</h4>
+                <p>Плавний crossfade між фото, індикатор прогресу</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-preview" style="margin-top: 20px;">
+            <h3>Кольорова палітра</h3>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #0a0a0a; border-radius: 8px; border: 1px solid #333;"></div>
+                <p style="color: #666; font-size: 11px; margin-top: 5px;">#0a0a0a</p>
+              </div>
+              <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #fa8112; border-radius: 8px;"></div>
+                <p style="color: #666; font-size: 11px; margin-top: 5px;">#fa8112</p>
+              </div>
+              <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; border: 1px solid #333;"></div>
+                <p style="color: #666; font-size: 11px; margin-top: 5px;">#1a1a1a</p>
+              </div>
+              <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #ffffff; border-radius: 8px;"></div>
+                <p style="color: #666; font-size: 11px; margin-top: 5px;">#ffffff</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 30px;">
+  <h3>Що покращено:</h3>
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>✓ Покращення дизайну:</h4>
+      <ul>
+        <li><strong>Горизонтальне розташування:</strong> текст зліва, фото справа</li>
+        <li><strong>Глибина:</strong> градієнти, тіні, glassmorphism елементи</li>
+        <li><strong>Контраст:</strong> чітка ієрархія, акцентні кольори</li>
+        <li><strong>Сучасний стиль:</strong> закруглені кути, субтильні рамки</li>
+        <li><strong>Анімації:</strong> fade-in при скролі, hover ефекти</li>
+        <li><strong>Timer bar:</strong> візуальний індикатор авто-ротації</li>
+      </ul>
+    </div>
+  </div>
+</div>
