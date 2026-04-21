@@ -6,7 +6,10 @@
       "Bash(npm create *)",
       "Bash(npm install *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(cp -r src/* bec-motivation/src/)",
+      "Bash(cp -r public/* bec-motivation/public/)",
+      "Bash(npm run *)"
     ]
   }
 }
