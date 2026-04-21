@@ -7,11 +7,11 @@ import './App.css';
 
 // Photo paths for the carousel
 const photos = [
-  '/photos/photo1.jpg',
-  '/photos/photo2.jpg',
-  '/photos/photo3.jpg',
-  '/photos/photo4.jpg',
-  '/photos/photo5.jpg',
+  '/photos/photo1.svg',
+  '/photos/photo2.svg',
+  '/photos/photo3.svg',
+  '/photos/photo4.svg',
+  '/photos/photo5.svg',
 ];
 
 function App() {
