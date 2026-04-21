@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
-  <rect width="300" height="300" fill="#1a1a1a"/>
-  <circle cx="150" cy="120" r="50" fill="#fa8112" opacity="0.8"/>
-  <text x="150" y="220" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="16">Photo 1</text>
-</svg>

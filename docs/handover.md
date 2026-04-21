@@ -114,11 +114,16 @@
 
 ---
 
-## Pending Tasks (⏸️)
+### Task 12: Create README
+- **Status:** FULLY COMPLETED ✅
+- **File created:** `README.md` - Опис проєкту, стек технологій, інструкція із запуску
+- **Commit:** `docs: add README with deployment instructions`
 
-| Task | Description |
-|------|-------------|
-| Task 12 | Create README - Project description, setup, deployment guide |
+---
+
+## ✅ ALL TASKS COMPLETED
+
+**Final Status:** Всі 12 задач успішно виконані. Проєкт готовий до деплою на GitHub Pages.
 
 ---
 
