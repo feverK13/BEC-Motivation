@@ -1,6 +1,19 @@
 import { useState } from 'react';
+import type { ReactNode } from 'react';
 import './RoleTabs.css';
-export function RoleTabs({ logistician, itSpecialist }: { logistician: { why: string; bring: string; get: string }; itSpecialist: { why: string; bring: string; get: string } }) {
+
+interface RoleContent {
+  why: ReactNode;
+  bring: ReactNode;
+  get: ReactNode;
+}
+
+interface RoleTabsProps {
+  logistician: RoleContent;
+  itSpecialist: RoleContent;
+}
+
+export function RoleTabs({ logistician, itSpecialist }: RoleTabsProps) {
   const [activeRole, setActiveRole] = useState<'logistician' | 'it'>('logistician');
   const currentContent = activeRole === 'logistician' ? logistician : itSpecialist;
   return (

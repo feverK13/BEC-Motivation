@@ -6,21 +6,51 @@ export function RoleSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.2 });
 
   const logisticianContent = {
-    why:
-      '{/* USER_CONTENT */}',
-    bring:
-      '{/* USER_CONTENT */}',
-    get:
-      '{/* USER_CONTENT */}',
+    why: (
+      <>
+        {/* USER_CONTENT */}
+        Розкажи чому хочеш бути логістом — чим ця роль тебе цікавить і що тобі в ній подобається.
+        {/* USER_CONTENT */}
+      </>
+    ),
+    bring: (
+      <>
+        {/* USER_CONTENT */}
+        Опиши свої сильні сторони: організаційні навички, увага до деталей, вміння працювати в команді.
+        {/* USER_CONTENT */}
+      </>
+    ),
+    get: (
+      <>
+        {/* USER_CONTENT */}
+        Що ти очікуєш отримати від цієї ролі — нові навички, досвід, знайомства.
+        {/* USER_CONTENT */}
+      </>
+    ),
   };
 
   const itSpecialistContent = {
-    why:
-      '{/* USER_CONTENT */}',
-    bring:
-      '{/* USER_CONTENT */}',
-    get:
-      '{/* USER_CONTENT */}',
+    why: (
+      <>
+        {/* USER_CONTENT */}
+        Розкажи чому хочеш бути IT-спеціалістом — чим ця роль тебе цікавить і що тобі в ній подобається.
+        {/* USER_CONTENT */}
+      </>
+    ),
+    bring: (
+      <>
+        {/* USER_CONTENT */}
+        Опиши свої технічні навички: програмування, робота з інструментами, досвід проєктів.
+        {/* USER_CONTENT */}
+      </>
+    ),
+    get: (
+      <>
+        {/* USER_CONTENT */}
+        Що ти очікуєш отримати від цієї ролі — нові знання, портфоліо, робота з технологіями.
+        {/* USER_CONTENT */}
+      </>
+    ),
   };
 
   return (
