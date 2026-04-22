@@ -1,0 +1,64 @@
+.role-tabs {
+  width: 100%;
+}
+
+.role-tabs-header {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.role-tab {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #ff6b35;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.role-tab:hover {
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.role-tab.active {
+  background: #ff6b35;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+.role-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.role-block {
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.role-block:hover {
+  border-color: #ff6b35;
+  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.2);
+  transform: translateY(-2px);
+}
+
+.role-block h3 {
+  color: #ff6b35;
+  font-size: 18px;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.role-block p {
+  color: #e0e0e0;
+  margin: 0;
+  line-height: 1.6;
+}
