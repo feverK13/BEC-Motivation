@@ -42,7 +42,11 @@ export function Navigation() {
     <>
       <nav className="navigation-desktop">
         <div className="nav-logo">
-          <img className="bec-logo" src="/public/Bec-logo.svg" alt="BEC Logo" />
+          <img
+            className="bec-logo"
+            src="../public/Bec-logo.svg"
+            alt="BEC Logo"
+          />
           <p>BEC 2026</p>
         </div>
         <div className="nav-items">
