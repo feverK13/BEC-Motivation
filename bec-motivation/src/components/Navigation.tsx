@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import becLogo from "/public/bec-logo.svg";
+import becLogo from "../assets/bec-logo.svg";
 import "./Navigation.css";
 
 const navItems = [
