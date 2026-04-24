@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from "react";
 
 export function useCarousel({
   totalSlides,
@@ -60,5 +60,13 @@ export function useCarousel({
   const pause = useCallback(() => setIsPaused(true), []);
   const resume = useCallback(() => setIsPaused(false), []);
 
-  return { currentIndex, progress, goToSlide, nextSlide, prevSlide, pause, resume };
+  return {
+    currentIndex,
+    progress,
+    goToSlide,
+    nextSlide,
+    prevSlide,
+    pause,
+    resume,
+  };
 }
