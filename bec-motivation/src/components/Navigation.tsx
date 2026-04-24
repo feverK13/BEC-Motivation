@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import becLogo from "/public/bec-logo.svg";
 import "./Navigation.css";
 
 const navItems = [
@@ -42,7 +43,7 @@ export function Navigation() {
     <>
       <nav className="navigation-desktop">
         <div className="nav-logo">
-          <img className="bec-logo" src="./bec-logo.svg" alt="BEC Logo" />
+          <img className="bec-logo" src={becLogo} alt="BEC Logo" />
           <p>BEC 2026</p>
         </div>
         <div className="nav-items">
@@ -60,7 +61,7 @@ export function Navigation() {
 
       <header className="navigation-mobile">
         <div className="mobile-logo">
-          <img className="bec-logo" src="./bec-logo.svg" alt="BEC Logo" />
+          <img className="bec-logo" src={becLogo} alt="BEC Logo" />
           <p>BEC 2026</p>
         </div>
         <button
