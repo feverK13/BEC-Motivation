@@ -26,7 +26,9 @@
 .fade-in-section {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
 }
 
 /* Visible state - triggers animation */
@@ -79,7 +81,7 @@
    Role Section Styles
    ============================================ */
 .role-section {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg);
 }
 
 .role-container {

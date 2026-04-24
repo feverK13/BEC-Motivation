@@ -62,3 +62,7 @@
   margin: 0;
   line-height: 1.6;
 }
+.role-block ul {
+  margin: 12px 0 12px 20px;
+  padding: 0;
+}

@@ -1,17 +1,16 @@
-import { Navigation } from './components/Navigation';
-import { AboutSection } from './sections/AboutSection';
-import { RoleSection } from './sections/RoleSection';
-import { SummarySection } from './sections/SummarySection';
-import { FooterSection } from './sections/FooterSection';
-import './App.css';
+import { Navigation } from "./components/Navigation";
+import { AboutSection } from "./sections/AboutSection";
+import { RoleSection } from "./sections/RoleSection";
+import { SummarySection } from "./sections/SummarySection";
+import { FooterSection } from "./sections/FooterSection";
+import "./App.css";
 
-// Photo paths for the carousel
 const photos = [
-  '/photos/photo1.svg',
-  '/photos/photo2.svg',
-  '/photos/photo3.svg',
-  '/photos/photo4.svg',
-  '/photos/photo5.svg',
+  "/photos/photo_1.jpg",
+  "/photos/photo_2.jpg",
+  "/photos/photo_3.jpg",
+  "/photos/photo_4.jpg",
+  "/photos/photo_5.jpg",
 ];
 
 function App() {

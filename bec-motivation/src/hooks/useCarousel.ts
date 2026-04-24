@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 export function useCarousel({
   totalSlides,
@@ -10,6 +10,13 @@ export function useCarousel({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const progressRef = useRef(progress);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const step = 100 / (autoPlayInterval / 100);
+
+  useEffect(() => {
+    progressRef.current = progress;
+  }, [progress]);
 
   const goToSlide = useCallback((index: number) => {
     setCurrentIndex(index);
@@ -29,18 +36,26 @@ export function useCarousel({
   useEffect(() => {
     if (isPaused) return;
 
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          nextSlide();
-          return 0;
-        }
-        return prev + (100 / (autoPlayInterval / 100));
-      });
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    intervalRef.current = setInterval(() => {
+      const nextProgress = progressRef.current + step;
+
+      if (nextProgress >= 100) {
+        nextSlide();
+      } else {
+        setProgress(nextProgress);
+      }
     }, 100);
 
-    return () => clearInterval(interval);
-  }, [isPaused, autoPlayInterval, nextSlide]);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isPaused, nextSlide, step]);
 
   const pause = useCallback(() => setIsPaused(true), []);
   const resume = useCallback(() => setIsPaused(false), []);

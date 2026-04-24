@@ -1,4 +1,3 @@
-/* Navigation Desktop - Fixed Sidebar */
 .navigation-desktop {
   position: fixed;
   left: 0;
@@ -15,13 +14,26 @@
 }
 
 .nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-right: 0.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(250, 129, 18, 0.2);
+  margin-bottom: 1rem;
+}
+
+.bec-logo {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-logo p {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fa8112;
   text-align: center;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(250, 129, 18, 0.2);
-  margin-bottom: 1rem;
   letter-spacing: 1px;
 }
 
@@ -53,7 +65,11 @@
 
 .nav-item.active {
   color: #fa8112;
-  background: linear-gradient(90deg, rgba(250, 129, 18, 0.15) 0%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(250, 129, 18, 0.15) 0%,
+    transparent 100%
+  );
   border-left: 3px solid #fa8112;
   font-weight: 500;
 }
@@ -76,6 +92,12 @@
 }
 
 .mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-logo p {
   font-size: 1.25rem;
   font-weight: 700;
   color: #fa8112;
@@ -171,7 +193,11 @@
 
 .mobile-nav-item.active {
   color: #fa8112;
-  background: linear-gradient(90deg, rgba(250, 129, 18, 0.15) 0%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(250, 129, 18, 0.15) 0%,
+    transparent 100%
+  );
   border-left-color: #fa8112;
   font-weight: 500;
 }

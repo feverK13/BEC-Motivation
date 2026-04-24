@@ -18,17 +18,11 @@ export function FooterSection() {
           Мої <span>контакти</span>
         </h2>
         <p className="footer-text">
-          {/* USER_CONTENT */}
           Якщо матимеш додаткові питання то зі мною можна зв'язатись через ці
           мережі, а також глянути на мої проекти в GitHub
-          {/* USER_CONTENT */}
         </p>
         <SocialLinks />
-        <p className="footer-copyright">
-          {/* USER_CONTENT */}
-          !!!Хочу в BEC 2026!!!
-          {/* USER_CONTENT */}
-        </p>
+        <p className="footer-copyright">!!!Хочу в BEC 2026!!!</p>
       </div>
     </section>
   );
